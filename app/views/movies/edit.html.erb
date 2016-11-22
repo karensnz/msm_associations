@@ -1,11 +1,11 @@
 <!-- Validation failure messages -->
 <% if @movie.errors.any? %>
-<% @movie.errors.full_messages.each do |message| %>
-<div class="alert alert-dismissable alert-danger">
-  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-  <%= message %>
-</div>
-<% end %>
+  <% @movie.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
 <% end %>
 
 <div class="page-header">
@@ -25,6 +25,15 @@
         </label>
 
         <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @movie.title %>">
+      </div>
+
+      <!-- Label and input for director_id -->
+      <div class="form-group">
+        <label for="director_id" class="control-label">
+          Director
+        </label>
+
+        <input type="text" id="director_id" name="director_id" placeholder="Director" class="form-control" value="<%= @movie.director_id %>">
       </div>
 
       <!-- Label and input for year -->
@@ -61,15 +70,6 @@
         </label>
 
         <input type="text" id="image_url" name="image_url" placeholder="Image url" class="form-control" value="<%= @movie.image_url %>">
-      </div>
-
-      <!-- Label and input for director_id -->
-      <div class="form-group">
-        <label for="director_id" class="control-label">
-          Director
-        </label>
-
-        <%= select_tag(:director_id, options_from_collection_for_select(Director.all, :id, :name, @movie.director_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">

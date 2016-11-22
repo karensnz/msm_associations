@@ -17,14 +17,8 @@
 
       <% @characters.each do |character| %>
       <tr>
-        <td>
-          <% if character.movie != nil %>
-          <%= character.movie.title %>
-          <% else %>
-          No movie selected
-          <% end %>
-        </td>
-        <td><%= character.actor.try(:name) %></td>
+        <td><%= character.movie_id %></td>
+        <td><%= character.actor_id %></td>
         <td><%= character.name %></td>
         <td>
           <a href="/characters/<%= character.id %>" class="btn btn-primary">Show</a>

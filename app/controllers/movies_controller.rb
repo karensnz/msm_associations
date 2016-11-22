@@ -21,6 +21,10 @@ class MoviesController < ApplicationController
     @movie = Movie.new
 
     @movie.title = params[:title]
+    @movie.director_id = params[:director_id]
+    @movie.year = params[:year]
+    @movie.duration = params[:duration]
+    @movie.description = params[:description]
     @movie.image_url = params[:image_url]
 
     save_status = @movie.save
@@ -42,6 +46,10 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
 
     @movie.title = params[:title]
+    @movie.director_id = params[:director_id]
+    @movie.year = params[:year]
+    @movie.duration = params[:duration]
+    @movie.description = params[:description]
     @movie.image_url = params[:image_url]
 
     save_status = @movie.save
